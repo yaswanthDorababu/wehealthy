@@ -46,16 +46,16 @@ function ProtectedRoute() {
     }
 
     checkSession();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(
-  (_event, session: Session: any ) => {
-      if (active) {
-        setAuthenticated(!!session);
-        setLoading(false);
-      }
-    });
+const {
+  data: { subscription },
+} = supabase.auth.onAuthStateChange(
+  (_event, session: any) => {
+    if (active) {
+      setAuthenticated(!!session);
+      setLoading(false);
+    }
+  }
+);
 
     return () => {
       active = false;
