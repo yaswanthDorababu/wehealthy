@@ -49,7 +49,8 @@ function ProtectedRoute() {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange(
+  (_event, session: Session: any ) => {
       if (active) {
         setAuthenticated(!!session);
         setLoading(false);
